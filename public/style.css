@@ -6,9 +6,41 @@
     display: flex;
     justify-content: space-between;
 }
+.direita {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin: 50px;
+}
 .forca {
     width: 400px;
     height: 466px;
     margin-top: 30px;
     margin-left: 30px;
+}
+.button-escolher {
+    width: 200px;
+    height: 60px;
+    font-size: 20px;
+    border-radius: 8px;
+    color: #FFF;
+    background-color: #27AE60;
+    border: none;
+    font-weight: 700;
+}
+.letras {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 350px;
+}
+.letras button {
+    width: 40px;
+    height: 40px;
+    background: #9FAAB5;
+    border: 1px solid #7AA7C7;
+    border-radius: 3px;
+    margin: 5px;
 }
