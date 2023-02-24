@@ -1,7 +1,7 @@
-export default function Letras(props) {
+export default function Letras({letraDesabilitada, setLetraDesabilitada, alfabeto, palavra, contagemErros, setContagemErros}) {
     return (
         <div className="letras" >
-            { props.alfabeto.map( (letra) => <button disabled={true}>{letra}</button>)}
+            {alfabeto.map( (letra, index) => <button key={index} disabled={letraDesabilitada}>{letra}</button>)}
         </div>
     )
 }
