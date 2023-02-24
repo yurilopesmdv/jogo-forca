@@ -14,35 +14,42 @@ function App() {
     { link: "assets/img/forca5.png", alt: "forca5" },
     { link: "assets/img/forca6.png", alt: "forca6" }
   ]
-  const [letraDesabilitada, setLetraDesabilitada] = useState(true)
   const [palavra, setPalavra] = useState([])
-  const [forca, setForca] = useState(forcaN[0])
   const [contagemErros, setContagemErros] = useState(0)
-  const [letrasDigitadas, setLetrasDigitadas] = useState([])
+  const [letrasDigitadas, setLetrasDigitadas] = useState(alfabeto)
+  console.log(contagemErros)
   function escolherPalavra() {
     const indiceAleatorio = Math.floor(Math.random() * palavras.length);
     const palavraAleatoria = palavras[indiceAleatorio].split('');
     setPalavra(palavraAleatoria)
-    setLetraDesabilitada(false)
+    setLetrasDigitadas([])
+  }
+  function selecionarLetra(letra) {
+    setLetrasDigitadas([...letrasDigitadas, letra])
+    if(palavra.includes(letra)) {
+
+    } else {
+      setContagemErros(contagemErros + 1)
+    }
+    
   }
   return (
     <div className="App">
-      <Jogo setForca={setForca} 
-      palavra={palavra} forca={forca} 
+      <Jogo 
+      palavra={palavra}
       forcaN={forcaN} 
-      botaoEscolherPalavra={escolherPalavra} 
-      letraDesabilitada={letraDesabilitada}
-      setLetraDesabilitada={setLetraDesabilitada}
+      botaoEscolherPalavra={escolherPalavra}
       contagemErros={contagemErros}
       setContagemErros={setContagemErros}
       letrasDigitadas={letrasDigitadas}/>
 
-      <Letras letraDesabilitada={letraDesabilitada} 
-      setLetraDesabilitada={setLetraDesabilitada} 
+      <Letras 
       alfabeto={alfabeto} 
       palavra={palavra}
       contagemErros={contagemErros}
-      setContagemErros={setContagemErros} />
+      setContagemErros={setContagemErros}
+      selecionarLetra={selecionarLetra}
+      letrasDigitadas={letrasDigitadas} />
 
     </div>
   );
