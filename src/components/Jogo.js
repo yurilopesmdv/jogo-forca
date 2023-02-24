@@ -1,13 +1,12 @@
 import { useState } from "react"
 
-export default function Jogo(props) {
- 
+export default function Jogo({ forca, botao, palavra, setForca, forcaN}) {
     return (
         <div className="jogo">
-            <img className="forca" src={props.forca.link} alt={props.forca.alt} />
+            <img className="forca" src={forca.link} alt={forca.alt} />
             <div className="direita">
-                <button onClick={props.botao} className="button-escolher">Escolher Palavra</button>
-                {props.palavra}
+                <button onClick={botao} className="button-escolher">Escolher Palavra</button>
+                {palavra}
             </div>
         </div>
     )
