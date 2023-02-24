@@ -2,7 +2,7 @@ export default function Letras({selecionarLetra, letrasDigitadas, alfabeto, pala
     
     return (
         <div className="letras" >
-            {alfabeto.map( (letra, index) => <button onClick={() => selecionarLetra(letra)} key={index} disabled={letrasDigitadas.includes(letra)} >{letra}</button>)}
+            {alfabeto.map( (letra, index) => <button data-test="letter" onClick={() => selecionarLetra(letra)} key={index} disabled={letrasDigitadas.includes(letra)} >{letra}</button>)}
         </div>
     )
 }

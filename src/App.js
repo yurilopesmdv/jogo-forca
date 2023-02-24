@@ -21,7 +21,6 @@ function App() {
   const [spanClass, setSpanClass] = useState("span-letra")
   const [jogoAcabou, setJogoAcabou] = useState(false)
   const letraRepetida = palavra.filter( (letra, index) => palavra.indexOf(letra) === index)
-  console.log(contagemErros)
   function escolherPalavra() {
     if(jogoAcabou) {
       setContagemAcertos(0)

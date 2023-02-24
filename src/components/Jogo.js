@@ -3,10 +3,10 @@ export default function Jogo({ spanClass, letrasDigitadas, botaoEscolherPalavra,
     
     return (
         <div className="jogo">
-            <img className="forca" src={forcaN[contagemErros].link} alt={forcaN[contagemErros].alt} />
+            <img data-test="game-image" className="forca" src={forcaN[contagemErros].link} alt={forcaN[contagemErros].alt} />
             <div className="direita">
-                <button onClick={botaoEscolherPalavra} className="button-escolher">Escolher Palavra</button>
-                <span className={spanClass}>{palavra.map( (letra, index) =>  {
+                <button data-test="choose-word" onClick={botaoEscolherPalavra} className="button-escolher">Escolher Palavra</button>
+                <span data-test="word" className={spanClass}>{palavra.map( (letra, index) =>  {
                     if(letrasDigitadas.includes(letra)) {
                         return `${letra}`
                     } else {
