@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Jogo from "./components/Jogo";
 import Letras from "./components/Letras";
-import palavras from "./palavras";
+import palavras from "./palavras"
 import alfabeto from "./components/alfabeto";
 
 function App() {
@@ -21,6 +21,7 @@ function App() {
   const [spanClass, setSpanClass] = useState("span-letra")
   const [jogoAcabou, setJogoAcabou] = useState(false)
   const letraRepetida = palavra.filter( (letra, index) => palavra.indexOf(letra) === index)
+  console.log(contagemErros)
   function escolherPalavra() {
     if(jogoAcabou) {
       setContagemAcertos(0)
