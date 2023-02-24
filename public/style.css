@@ -12,6 +12,7 @@
     justify-content: space-between;
     align-items: center;
     margin: 50px;
+    font-size: 50px;
 }
 .forca {
     width: 400px;
@@ -46,3 +47,4 @@
     margin: 5px;
     cursor: pointer;
 }
+

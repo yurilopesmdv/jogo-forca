@@ -15,13 +15,13 @@ function App() {
     { link: "assets/img/forca6.png", alt: "forca6" }
   ]
   const [letraDesabilitada, setLetraDesabilitada] = useState(true)
-  const [palavra, setPalavra] = useState([""])
+  const [palavra, setPalavra] = useState([])
   const [forca, setForca] = useState(forcaN[0])
   const [contagemErros, setContagemErros] = useState(0)
   const [letrasDigitadas, setLetrasDigitadas] = useState([])
   function escolherPalavra() {
     const indiceAleatorio = Math.floor(Math.random() * palavras.length);
-    const palavraAleatoria = [palavras[indiceAleatorio]];
+    const palavraAleatoria = palavras[indiceAleatorio].split('');
     setPalavra(palavraAleatoria)
     setLetraDesabilitada(false)
   }
