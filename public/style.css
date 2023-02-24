@@ -47,4 +47,12 @@
     margin: 5px;
     cursor: pointer;
 }
-
+.span-letra {
+    color: black;
+}
+.verde {
+    color: green;
+}
+.vermelho {
+    color: red;
+}

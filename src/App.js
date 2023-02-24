@@ -16,9 +16,19 @@ function App() {
   ]
   const [palavra, setPalavra] = useState([])
   const [contagemErros, setContagemErros] = useState(0)
+  const [contagemAcertos, setContagemAcertos] = useState(0)
   const [letrasDigitadas, setLetrasDigitadas] = useState(alfabeto)
+  const [spanClass, setSpanClass] = useState("span-letra")
+  const [jogoAcabou, setJogoAcabou] = useState(false)
+  const letraRepetida = palavra.filter( (letra, index) => palavra.indexOf(letra) === index)
   console.log(contagemErros)
   function escolherPalavra() {
+    if(jogoAcabou) {
+      setContagemAcertos(0)
+      setContagemErros(0)
+      setJogoAcabou(false)
+      setSpanClass("span-letra")
+    }
     const indiceAleatorio = Math.floor(Math.random() * palavras.length);
     const palavraAleatoria = palavras[indiceAleatorio].split('');
     setPalavra(palavraAleatoria)
@@ -26,13 +36,26 @@ function App() {
   }
   function selecionarLetra(letra) {
     setLetrasDigitadas([...letrasDigitadas, letra])
+    const acertos = contagemAcertos + 1
+    const erros = contagemErros + 1
     if(palavra.includes(letra)) {
-
+      setContagemAcertos(contagemAcertos + 1)
+      
     } else {
       setContagemErros(contagemErros + 1)
+  
     }
-    
+    if(acertos === letraRepetida.length) {
+      setSpanClass("verde")
+      setJogoAcabou(true)
+      setLetrasDigitadas(alfabeto)
+    } else if(erros === 6){
+      setSpanClass("vermelho")
+      setJogoAcabou(true)
+      setLetrasDigitadas(alfabeto)
+    }
   }
+  
   return (
     <div className="App">
       <Jogo 
@@ -41,7 +64,8 @@ function App() {
       botaoEscolherPalavra={escolherPalavra}
       contagemErros={contagemErros}
       setContagemErros={setContagemErros}
-      letrasDigitadas={letrasDigitadas}/>
+      letrasDigitadas={letrasDigitadas}
+      spanClass={spanClass}/>
 
       <Letras 
       alfabeto={alfabeto} 
