@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Jogo from "./components/Jogo";
 import Letras from "./components/Letras";
-import palavras from "./components/palavras";
+import palavras from "./palavras";
 import alfabeto from "./components/alfabeto";
 
 function App() {
